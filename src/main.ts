@@ -3,7 +3,6 @@ import { AppModule } from './app.module'
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule)
-
   app.setGlobalPrefix('api')
   app.enableCors({
     origin: '*', // или можно указать конкретный домен, например, 'http://localhost:3000'
@@ -11,6 +10,7 @@ async function bootstrap() {
     allowedHeaders: 'Content-Type, Authorization', // если используется JWT
   })
 
+  await app.init()
   await app.listen(3000)
 }
 

@@ -5,7 +5,7 @@ import { PrismaService } from './prisma/prisma.service'
 import { ConfigModule } from '@nestjs/config'
 
 @Module({
-  imports: [AuthModule, TasksModule, ConfigModule.forRoot()],
+  imports: [AuthModule, TasksModule, ConfigModule.forRoot({ isGlobal: true })],
   exports: [PrismaService],
   providers: [PrismaService],
 })
